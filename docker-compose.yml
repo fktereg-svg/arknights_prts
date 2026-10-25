@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  prts-agent:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      - LIVEKIT_URL=${LIVEKIT_URL}
+      - LIVEKIT_API_KEY=${LIVEKIT_API_KEY}
+      - LIVEKIT_API_SECRET=${LIVEKIT_API_SECRET}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    volumes:
+      - .:/app
+    restart: unless-stopped
